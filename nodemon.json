@@ -1,0 +1,11 @@
+{
+  "watch": [
+    "dist/"
+  ],
+  "ext": "js",
+  "ignore": [
+    "src/"
+  ],
+  "delay": 500,
+  "script": "NODE_OPTIONS='--import tsx' nodemon src/index.ts"
+}
