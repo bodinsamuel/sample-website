@@ -7,7 +7,6 @@ import staticFiles from '@fastify/static';
 import rawBody from 'fastify-raw-body';
 
 import { routes } from './routes/routes.js';
-import './types/auth.js';
 
 import type {
   FastifyInstance,
@@ -32,14 +31,14 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
     exposedHeaders: ['set-cookie'],
   });
 
-  f.setErrorHandler(function (error, _req, res) {
+  f.setErrorHandler(async function (error, _req, res) {
     console.error(error instanceof Error ? error.message : error);
 
-    res.status(500).send({ code: 'server_error'});
+    await res.status(500).send({ error: 'server_error' });
   });
 
-  f.setNotFoundHandler(function (req, res) {
-    res.status(404).send({ code: '404_not_found'});
+  f.setNotFoundHandler(async function (req, res) {
+    await res.status(404).send({ error: '404_not_found' });
   });
 
   await f.register(staticFiles, {
@@ -60,11 +59,9 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
     { parseAs: 'string', bodyLimit: 10971520 },
     function (_req, body, done) {
       try {
-        const json = JSON.parse(body as string);
-        done(null, json);
+        done(null, JSON.parse(body as string));
       } catch (err: unknown) {
-        (err as any).statusCode = 400;
-        done(err as any, undefined);
+        done(new Error('failed to parse json'), undefined);
       }
     }
   );

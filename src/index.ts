@@ -47,6 +47,6 @@ app.listen({ host: '0.0.0.0', port: PORT }, (err) => {
 });
 
 void (async () => {
-  console.log('Starting...');
+  console.log('🚀 Started', `http://localhost:${PORT}`);
 
 })();

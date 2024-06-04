@@ -41,5 +41,13 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-unsafe-argument': 'off',
+    'import/no-unresolved': 'off',
+    '@typescript-eslint/restrict-template-expressions': [
+      'warn',
+      {
+        allowNumber: true,
+        allowBoolean: true,
+      },
+    ],
   },
 };
