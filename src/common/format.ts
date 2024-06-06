@@ -1,11 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { FastifyReply } from 'fastify';
 
-export async function formatRes(
-  res: FastifyReply,
-  format: 'html' | 'json' | 'xml',
-  content: unknown
-) {
+export type OutputFormat = 'html' | 'json' | 'xml';
+
+export async function formatRes({
+  res,
+  format = 'json',
+  content,
+}: {
+  res: FastifyReply;
+  format?: OutputFormat;
+  content: unknown;
+}) {
   if (format === 'html') {
     await res
       .type('html')

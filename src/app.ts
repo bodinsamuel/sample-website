@@ -5,6 +5,7 @@ import rateLimit from '@fastify/rate-limit';
 import staticFiles from '@fastify/static';
 
 import rawBody from 'fastify-raw-body';
+import compress from '@fastify/compress';
 
 import { routes } from './routes/routes.js';
 
@@ -34,15 +35,25 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
   f.setErrorHandler(async function (error, _req, res) {
     console.error(error instanceof Error ? error.message : error);
 
-    await res.status(500).send({ error: 'server_error' });
+    await res.status(500).send({
+      error: {
+        code: 'server_error',
+        message: 'This is an actual server error',
+      },
+    });
   });
 
   f.setNotFoundHandler(async function (req, res) {
-    await res.status(404).send({ error: '404_not_found' });
+    await res.status(404).send({
+      error: {
+        code: '404_not_found',
+        message: 'This endpoint does not exists',
+      },
+    });
   });
 
   await f.register(staticFiles, {
-    root: path.join(dirname, '..', 'api/src/public'),
+    root: path.join(dirname, '../public'),
     prefix: '/',
   });
 
@@ -52,6 +63,8 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
     encoding: 'utf8',
     runFirst: true,
   });
+
+  await f.register(compress, { global: true, threshold: 1 });
 
   f.removeAllContentTypeParsers();
   f.addContentTypeParser(

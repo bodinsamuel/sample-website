@@ -3,7 +3,6 @@
 ## Todo
 
 - Status code
-  - Random
   - Redirect broken
 - Authentication: basic, api key, digest, oauth1, oauth2
   - Success and failure
@@ -22,8 +21,7 @@
   - noindex,
 - Long polling
   - configurable timeout
-- Get ip / user agent
 - Rate limit tester
 - Compression
-  - brotly, deflate, gzip
+  - deflate
 - Stream of data

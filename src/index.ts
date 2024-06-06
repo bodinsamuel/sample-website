@@ -1,7 +1,7 @@
-import closeWithGrace from "close-with-grace";
-import fastify from "fastify";
-import { PORT } from "./env.js";
-import appService, { options } from "./app.js";
+import closeWithGrace from 'close-with-grace';
+import fastify from 'fastify';
+import { PORT } from './env.js';
+import appService, { options } from './app.js';
 
 const app = fastify(options);
 
@@ -48,5 +48,4 @@ app.listen({ host: '0.0.0.0', port: PORT }, (err) => {
 
 void (async () => {
   console.log('🚀 Started', `http://localhost:${PORT}`);
-
 })();
