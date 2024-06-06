@@ -1,5 +1,6 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
+
 import { outputStatus, statusCodes } from './utils.js';
 
 const validation = z

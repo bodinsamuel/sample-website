@@ -1,5 +1,6 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
+
 import { formatRes } from '../common/format.js';
 
 const validation = z.object({

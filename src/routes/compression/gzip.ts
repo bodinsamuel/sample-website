@@ -1,6 +1,8 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
+import { formatRes } from '../../common/format.js';
+
 const validation = z
   .object({
     format: z.enum(['json', 'html', 'xml']).default('json'),
@@ -27,7 +29,12 @@ export const compressionGzip: FastifyPluginCallback = (fastify, _, done) => {
       return;
     }
 
-    await res.status(200).send({ message: 'Hello World gzip' });
+    await formatRes({
+      res: res.status(200),
+      format: val.data.format,
+      content: { message: 'Hello World gzip' },
+      autoType: false,
+    });
   };
 
   fastify.get('/', { preHandler: [enforceEncoding] }, handler);

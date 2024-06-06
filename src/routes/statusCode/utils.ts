@@ -1,6 +1,7 @@
 import { FastifyReply } from 'fastify';
-import { OutputFormat, formatRes } from '../../common/format.js';
 import { getReasonPhrase } from 'http-status-codes';
+
+import { OutputFormat, formatRes } from '../../common/format.js';
 
 export async function outputStatus({
   res,

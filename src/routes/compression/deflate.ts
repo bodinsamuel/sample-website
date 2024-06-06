@@ -10,11 +10,11 @@ const validation = z
   .strict();
 
 function enforceEncoding(req: FastifyRequest<any>, _: any, next: () => void) {
-  req.headers['accept-encoding'] = 'br';
+  req.headers['accept-encoding'] = 'deflate';
   next();
 }
 
-export const compressionBrotly: FastifyPluginCallback = (fastify, _, done) => {
+export const compressionDeflate: FastifyPluginCallback = (fastify, _, done) => {
   const handler = async function (
     req: FastifyRequest<{
       Querystring: { format?: string };
@@ -32,7 +32,7 @@ export const compressionBrotly: FastifyPluginCallback = (fastify, _, done) => {
     await formatRes({
       res: res.status(200),
       format: val.data.format,
-      content: { message: 'Hello World brotly' },
+      content: { message: 'Hello World deflate' },
       autoType: false,
     });
   };

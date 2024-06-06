@@ -22,6 +22,4 @@
 - Long polling
   - configurable timeout
 - Rate limit tester
-- Compression
-  - deflate
 - Stream of data

@@ -6,25 +6,43 @@ export type OutputFormat = 'html' | 'json' | 'xml';
 export async function formatRes({
   res,
   format = 'json',
+  autoType = true,
   content,
 }: {
   res: FastifyReply;
   format?: OutputFormat;
+  autoType?: boolean;
   content: unknown;
 }) {
   if (format === 'html') {
     await res
-      .type('html')
-      .send(
-        `<html><head></head><body><div>${JSON.stringify(content, null, 2)}</div></body></html>`
-      );
+      .status(200)
+      .type(autoType ? 'html' : 'text/plain')
+      .send(formatMessage('html', content));
   } else if (format === 'json') {
-    await res.send(content);
+    await res
+      .status(200)
+      .type(autoType ? 'json' : 'text/plain')
+      .send(formatMessage('json', content));
   } else if (format === 'xml') {
-    await res.type('application/xml')
-      .send(`<?xml version='1.0' encoding='utf-8'?>
+    await res
+      .status(200)
+      .type(autoType ? 'application/xml' : 'text/plain')
+      .send(formatMessage('xml', content));
+  }
+}
+
+function formatMessage(format: OutputFormat, content: unknown): string {
+  if (format === 'html') {
+    return `<html><head></head><body><div>${JSON.stringify(content, null, 2)}</div></body></html>`;
+  } else if (format === 'json') {
+    return JSON.stringify(content);
+  } else if (format === 'xml') {
+    return `<?xml version='1.0' encoding='utf-8'?>
     <Response>
       <Content>${JSON.stringify(content)}</Content>
-    </Response>`);
+    </Response>`;
   }
+
+  return '';
 }

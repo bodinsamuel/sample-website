@@ -50,6 +50,12 @@ module.exports = {
       },
     ],
 
-    'import/order': 'error',
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+      },
+    ],
+    '@typescript-eslint/no-explicit-any': 'warn',
   },
 };

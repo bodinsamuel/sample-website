@@ -3,17 +3,15 @@ import path from 'node:path';
 import cors from '@fastify/cors';
 import rateLimit from '@fastify/rate-limit';
 import staticFiles from '@fastify/static';
-
 import rawBody from 'fastify-raw-body';
 import compress from '@fastify/compress';
-
-import { routes } from './routes/routes.js';
-
 import type {
   FastifyInstance,
   FastifyPluginOptions,
   FastifyServerOptions,
 } from 'fastify';
+
+import { routes } from './routes/routes.js';
 import { dirname } from './env.js';
 
 export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
