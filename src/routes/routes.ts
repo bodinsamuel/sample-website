@@ -6,7 +6,8 @@ import { random } from './statusCode/random.js';
 import { compressionBrotly } from './compression/brotly.js';
 import { compressionGzip } from './compression/gzip.js';
 import { compressionDeflate } from './compression/deflate.js';
-import { list, root } from './root.js';
+import { root } from './root.js';
+import { list } from './list.js';
 
 export const routes: FastifyPluginAsync = async (f) => {
   f.get('/', async (req, reply) => {
