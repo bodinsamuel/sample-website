@@ -1,11 +1,12 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
 import { z } from 'zod';
 
+import { formatQueryParams } from '../../common/format.js';
+
 import { outputStatus } from './utils.js';
 
-const validation = z
-  .object({
-    format: z.enum(['json', 'html', 'xml']).default('json'),
+const validation = formatQueryParams
+  .extend({
     code: z.coerce.number(),
   })
   .strict();

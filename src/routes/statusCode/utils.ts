@@ -24,7 +24,7 @@ export async function outputStatus({
   ) {
     await res
       .status(code)
-      .header('Location', '/0/statusCode/200')
+      .header('Location', '/statusCode/200')
       .send(getReasonPhrase(code));
   }
 

@@ -1,11 +1,8 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
-import { z } from 'zod';
 
-import { formatRes } from '../common/format.js';
+import { formatQueryParams, formatRes } from '../common/format.js';
 
-const validation = z.object({
-  format: z.enum(['json', 'html', 'xml']).optional().default('json'),
-});
+const validation = formatQueryParams;
 
 export const echo: FastifyPluginCallback = (fastify, _, done) => {
   const handler = async function (

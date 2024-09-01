@@ -1,13 +1,8 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
-import { z } from 'zod';
 
-import { formatRes } from '../../common/format.js';
+import { formatQueryParams, formatRes } from '../../common/format.js';
 
-const validation = z
-  .object({
-    format: z.enum(['json', 'html', 'xml']).default('json'),
-  })
-  .strict();
+const validation = formatQueryParams;
 
 function enforceEncoding(req: FastifyRequest<any>, _: any, next: () => void) {
   req.headers['accept-encoding'] = 'br';

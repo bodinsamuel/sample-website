@@ -6,9 +6,15 @@ import { random } from './statusCode/random.js';
 import { compressionBrotly } from './compression/brotly.js';
 import { compressionGzip } from './compression/gzip.js';
 import { compressionDeflate } from './compression/deflate.js';
+import { list, root } from './root.js';
 
 export const routes: FastifyPluginAsync = async (f) => {
+  f.get('/', async (req, reply) => {
+    return reply.viewAsync('./public/index.ejs', { list: list });
+  });
+
   // --- Global
+  await f.register(root, { prefix: '/api' });
   await f.register(echo, { prefix: '/echo' });
 
   // --- Status Code

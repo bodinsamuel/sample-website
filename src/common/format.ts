@@ -1,7 +1,14 @@
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { FastifyReply } from 'fastify';
+import { z } from 'zod';
 
 export type OutputFormat = 'html' | 'json' | 'xml';
+
+export const formatQueryParams = z
+  .object({
+    format: z.enum(['json', 'html', 'xml']).optional().default('json'),
+  })
+  .strict();
 
 export async function formatRes({
   res,

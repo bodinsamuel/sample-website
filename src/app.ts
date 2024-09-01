@@ -10,6 +10,8 @@ import type {
   FastifyPluginOptions,
   FastifyServerOptions,
 } from 'fastify';
+import fastifyView from '@fastify/view';
+import ejs from 'ejs';
 
 import { routes } from './routes/routes.js';
 import { dirname } from './env.js';
@@ -25,7 +27,7 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
   });
 
   await f.register(cors, {
-    origin: ['http://localhost:3000', 'https://vercel.specfy.io'],
+    origin: ['http://localhost:3000'],
     credentials: true,
     exposedHeaders: ['set-cookie'],
   });
@@ -100,6 +102,12 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
     },
     keyGenerator: (req) => {
       return req.ip;
+    },
+  });
+
+  await f.register(fastifyView, {
+    engine: {
+      ejs: ejs,
     },
   });
 
