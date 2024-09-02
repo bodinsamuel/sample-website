@@ -1,8 +1,11 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
+import { z } from 'zod';
 
 import { formatQueryParams, formatRes } from '../common/format.js';
 
-const validation = formatQueryParams;
+const validation = z.object({
+  format: formatQueryParams.shape.format,
+}); // not strict on purpose
 
 export const echo: FastifyPluginCallback = (fastify, _, done) => {
   const handler = async function (
@@ -20,6 +23,7 @@ export const echo: FastifyPluginCallback = (fastify, _, done) => {
     }
 
     const body = {
+      date: new Date(),
       headers: req.headers,
       body: req.body || null,
       querystring: req.query,
