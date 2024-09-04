@@ -10,8 +10,6 @@ import type {
   FastifyPluginOptions,
   FastifyServerOptions,
 } from 'fastify';
-import fastifyView from '@fastify/view';
-import ejs from 'ejs';
 
 import { routes } from './routes/routes.js';
 import { dirname } from './env.js';
@@ -102,12 +100,6 @@ export default async (f: FastifyInstance, opts: FastifyPluginOptions) => {
     },
     keyGenerator: (req) => {
       return req.ip;
-    },
-  });
-
-  await f.register(fastifyView, {
-    engine: {
-      ejs: ejs,
     },
   });
 
