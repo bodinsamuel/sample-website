@@ -1,8 +1,7 @@
 import { FastifyPluginCallback, FastifyReply, FastifyRequest } from 'fastify';
 
 import { formatQueryParams, formatRes } from '../common/format.js';
-
-import { list } from './list.js';
+import { list } from '../list.js';
 
 export const root: FastifyPluginCallback = (fastify, _, done) => {
   const handler = async function (
