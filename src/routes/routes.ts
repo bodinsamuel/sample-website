@@ -9,6 +9,8 @@ import { compressionDeflate } from './compression/deflate.js';
 import { root } from './root.js';
 import { paginationValid } from './pagination/valid.js';
 import { paginationInfinite } from './pagination/infinite.js';
+import { redirectInfinite } from './statusCode/redirect.infinite.js';
+import { redirectBroken } from './statusCode/redirect.broken.js';
 
 export const routes: FastifyPluginAsync = async (f) => {
   // --- Global
@@ -27,4 +29,10 @@ export const routes: FastifyPluginAsync = async (f) => {
   // --- Status Code
   await f.register(random, { prefix: '/statusCode/random' });
   await f.register(statusCode, { prefix: '/statusCode/:code' });
+  await f.register(redirectInfinite, {
+    prefix: '/statusCode/redirect.infinite',
+  });
+  await f.register(redirectBroken, {
+    prefix: '/statusCode/redirect.broken',
+  });
 };

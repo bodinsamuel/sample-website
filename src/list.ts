@@ -31,6 +31,8 @@ export const list: Item[] = [
         path: '/statusCode/:code/',
         desc: 'Get the specified HTTP code',
       },
+      { path: '/statusCode/redirect.infinite/' },
+      { path: '/statusCode/redirect.broken/' },
     ],
   },
   {

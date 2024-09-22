@@ -2,8 +2,6 @@
 
 ## Todo
 
-- Status code
-  - Redirect broken
 - Authentication: basic, api key, digest, oauth1, oauth2
   - Success and failure
   - unique key
