@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+  xmlns:slash="http://purl.org/rss/1.0/modules/slash/">
+  <channel>
+    <title>Fake Website</title>
+    <link>/website/news</link>
+    <description>Latest news and updates from News Website</description>
+    <language>en-us</language>
+    <pubDate>Sun, 22 Sep 2024 10:00:00 +0000</pubDate>
+    <lastBuildDate>Sun, 22 Sep 2024 10:00:00 +0000</lastBuildDate>
+    <generator>News Website RSS Feed Generator</generator>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+
+    <item>
+      <title>Breaking News: Major Event Shakes the World</title>
+      <link>/website/news/news1.html</link>
+      <description>Get the full coverage of the major event shaking the world. Stay informed with our detailed news article.</description>
+      <pubDate>Sun, 22 Sep 2024 09:00:00 +0000</pubDate>
+      <guid>/news1.html</guid>
+      <dc:creator><![CDATA[John Doe]]></dc:creator>
+      <category><![CDATA[Breaking]]></category>
+      <category><![CDATA[Other]]></category>
+
+      <description><![CDATA[<p>Foobar</p>]]></description>
+      <content:encoded><![CDATA[<p>Hello world</p>]]></content:encoded>
+      <slash:comments>0</slash:comments>
+    </item>
+
+    <item>
+      <title>Tech: New Breakthrough in AI Technology</title>
+      <link>/website/news/news2.html</link>
+      <description>Discover the latest advancements in AI technology and its potential impacts on various industries.</description>
+      <pubDate>Sat, 21 Sep 2024 15:00:00 +0000</pubDate>
+      <guid>/news2.html</guid>
+    </item>
+
+    <item>
+      <title>Sports: Championship Game Ends in Dramatic Fashion</title>
+      <link>/website/news/news3.html</link>
+      <description>Catch up on all the action and drama from the latest championship game. See who took home the title.</description>
+      <pubDate>Fri, 20 Sep 2024 18:00:00 +0000</pubDate>
+      <guid>/news3.html</guid>
+    </item>
+
+  </channel>
+</rss>

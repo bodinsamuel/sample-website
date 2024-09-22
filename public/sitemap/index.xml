@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>/valid.xml</loc>
+    <lastmod>2024-09-22T20:23:24+00:00</lastmod>
+  </sitemap>
+  <sitemap>
+    <loc>/invalid.xml</loc>
+    <lastmod>2024-02-20T17:08:28+00:00</lastmod>
+  </sitemap>
+</sitemapindex>

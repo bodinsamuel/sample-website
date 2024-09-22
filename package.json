@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon",
+    "dev": "concurrently --names 'srv,web,job,prs,orc' --kill-others \"npm run dev:api\" \"npm run dev:app\"",
+    "dev:api": "nodemon",
+    "dev:app": "cd app && vite",
     "lint": "eslint . --ext .ts,.tsx",
     "watch": "tsc -b -w"
   },
@@ -33,6 +35,7 @@
     "@typescript-eslint/eslint-plugin": "7.12.0",
     "@typescript-eslint/parser": "7.12.0",
     "@vitejs/plugin-react-swc": "3.7.0",
+    "concurrently": "9.0.1",
     "eslint": "8.56.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",

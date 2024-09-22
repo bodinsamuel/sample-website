@@ -117,6 +117,26 @@ export const list: Item[] = [
     links: [{ path: '/html/js/redirect.html', desc: 'Will redirect onload' }],
   },
   {
+    name: 'Sitemap',
+    group: 'Content',
+    links: [
+      { path: '/sitemap/valid.xml' },
+      { path: '/sitemap/invalid.xml' },
+      { path: '/sitemap/index.xml' },
+      { path: '/sitemap/index_gz.xml' },
+      { path: '/sitemap/compressed.xml.gz' },
+    ],
+  },
+  {
+    name: 'Rss',
+    group: 'Content',
+    links: [
+      { path: '/rss/valid.rss' },
+      { path: '/rss/valid.atom' },
+      { path: '/rss/valid.xml' },
+    ],
+  },
+  {
     name: 'JSON',
     group: 'Content',
     links: [
@@ -157,5 +177,10 @@ export const list: Item[] = [
       { path: '/robots_txt/index.html' },
       { path: '/robots_txt/no_index.html' },
     ],
+  },
+  {
+    name: 'Website',
+    group: 'Website',
+    links: [{ path: '/website/news/index.html' }],
   },
 ];

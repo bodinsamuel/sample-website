@@ -8,11 +8,14 @@
   - Success and failure
   - unique key
 - Document: json, xml, html, pdf, doc
-  - + broken all
+  - - broken all
 - Media: png, jpg, jpeg, svg, ico, gif
-  - + broken all
+  - - broken all
 - Pagination
   - html page with link
+  - Infinite broken
+  - Infinite scroll
+  - Infinite scroll broken
 - html
   - react generated
 - Long polling
@@ -20,3 +23,6 @@
 - Rate limit tester
 - Stream of data
 - Attachment
+
+- Upload
+- Ecommerce
