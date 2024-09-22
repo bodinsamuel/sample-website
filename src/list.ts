@@ -117,8 +117,56 @@ export const list: Item[] = [
     links: [{ path: '/html/js/redirect.html', desc: 'Will redirect onload' }],
   },
   {
+    name: 'Rss',
+    group: 'Content Type',
+    links: [
+      { path: '/rss/valid.rss' },
+      { path: '/rss/valid.atom' },
+      { path: '/rss/valid.xml' },
+    ],
+  },
+  {
+    name: 'JSON',
+    group: 'Content Type',
+    links: [
+      { path: '/json/valid.json' },
+      { path: '/json/broken.json' },
+      { path: '/json/invalid.json' },
+    ],
+  },
+  {
+    name: 'CSV',
+    group: 'Content Type',
+    links: [{ path: '/csv/valid.csv' }, { path: '/csv/invalid.csv' }],
+  },
+  {
+    name: 'DOCX',
+    group: 'Content Type',
+    links: [{ path: '/docx/valid.docx' }],
+  },
+  {
+    name: 'PDF',
+    group: 'Content Type',
+    links: [{ path: '/pdf/valid.pdf' }],
+  },
+  {
+    name: 'PPTX',
+    group: 'Content Type',
+    links: [{ path: '/pptx/valid.pptx' }],
+  },
+  {
+    name: 'XLSX',
+    group: 'Content Type',
+    links: [{ path: '/xlsx/valid.xlsx' }],
+  },
+  {
+    name: 'Website',
+    group: 'Website',
+    links: [{ path: '/website/news/index.html' }],
+  },
+  {
     name: 'Sitemap',
-    group: 'Content',
+    group: 'Website',
     links: [
       { path: '/sitemap/valid.xml' },
       { path: '/sitemap/invalid.xml' },
@@ -128,47 +176,9 @@ export const list: Item[] = [
     ],
   },
   {
-    name: 'Rss',
-    group: 'Content',
-    links: [
-      { path: '/rss/valid.rss' },
-      { path: '/rss/valid.atom' },
-      { path: '/rss/valid.xml' },
-    ],
-  },
-  {
-    name: 'JSON',
-    group: 'Content',
-    links: [
-      { path: '/json/valid.json' },
-      { path: '/json/broken.json' },
-      { path: '/json/invalid.json' },
-    ],
-  },
-  {
-    name: 'CSV',
-    group: 'Content',
-    links: [{ path: '/csv/valid.csv' }, { path: '/csv/invalid.csv' }],
-  },
-  {
-    name: 'DOCX',
-    group: 'Content',
-    links: [{ path: '/docx/valid.docx' }],
-  },
-  {
-    name: 'PDF',
-    group: 'Content',
-    links: [{ path: '/pdf/valid.pdf' }],
-  },
-  {
-    name: 'PPTX',
-    group: 'Content',
-    links: [{ path: '/pptx/valid.pptx' }],
-  },
-  {
-    name: 'XLSX',
-    group: 'Content',
-    links: [{ path: '/xlsx/valid.xlsx' }],
+    name: 'Pagination',
+    group: 'Website',
+    links: [{ path: '/pagination/valid' }, { path: '/pagination/infinite' }],
   },
   {
     name: 'Robots.txt',
@@ -177,10 +187,5 @@ export const list: Item[] = [
       { path: '/robots_txt/index.html' },
       { path: '/robots_txt/no_index.html' },
     ],
-  },
-  {
-    name: 'Website',
-    group: 'Website',
-    links: [{ path: '/website/news/index.html' }],
   },
 ];

@@ -12,8 +12,6 @@
 - Media: png, jpg, jpeg, svg, ico, gif
   - - broken all
 - Pagination
-  - html page with link
-  - Infinite broken
   - Infinite scroll
   - Infinite scroll broken
 - html
