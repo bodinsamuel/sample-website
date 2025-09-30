@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "concurrently --names 'srv,web,job,prs,orc' --kill-others \"npm run dev:api\" \"npm run dev:app\"",
+    "dev": "concurrently --names 'api,app' --kill-others \"npm run dev:api\" \"npm run dev:app\"",
     "dev:api": "nodemon",
     "dev:app": "cd app && vite",
     "lint": "eslint . --ext .ts,.tsx",

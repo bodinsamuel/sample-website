@@ -26,7 +26,7 @@ export const paginationValid: FastifyPluginCallback = (fastify, _, done) => {
     }
 
     if (val.data.page <= 2) {
-      return res.status(200).type('html').send(`<!DOCTYPE html>
+      return res.status(200).type('text/html').send(`<!DOCTYPE html>
 <html>
   <body>
     <h1>Current page: ${val.data.page}</h1>
@@ -36,7 +36,7 @@ export const paginationValid: FastifyPluginCallback = (fastify, _, done) => {
   </body>
 </html>`);
     }
-    return res.status(400).type('html').send(`<!DOCTYPE html>
+    return res.status(400).type('text/html').send(`<!DOCTYPE html>
 <html>
   <body>
     404

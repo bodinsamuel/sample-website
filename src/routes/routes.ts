@@ -11,6 +11,8 @@ import { paginationValid } from './pagination/valid.js';
 import { paginationInfinite } from './pagination/infinite.js';
 import { redirectInfinite } from './statusCode/redirect.infinite.js';
 import { redirectBroken } from './statusCode/redirect.broken.js';
+import { scenarioRateLimit } from './scenario/rateLimit.js';
+import { scenarioRateLimitUntil200 } from './scenario/rateLimitUntil200.js';
 
 export const routes: FastifyPluginAsync = async (f) => {
   // --- Global
@@ -34,5 +36,11 @@ export const routes: FastifyPluginAsync = async (f) => {
   });
   await f.register(redirectBroken, {
     prefix: '/statusCode/redirect.broken',
+  });
+
+  // --- Special scenario
+  await f.register(scenarioRateLimit, { prefix: '/scenario/rateLimit' });
+  await f.register(scenarioRateLimitUntil200, {
+    prefix: '/scenario/rateLimitUntil200',
   });
 };

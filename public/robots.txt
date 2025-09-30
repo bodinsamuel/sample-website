@@ -1,2 +1,7 @@
 User-agent: *
 Disallow: /robots_txt/no_index.html
+# Website
+Disallow: /website/news/no_index.html
+
+Sitemap: http://localhost:3000/website/news/sitemap_index.xml
+Sitemap: http://localhost:3000/website/news/sitemap.xml

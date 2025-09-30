@@ -23,17 +23,14 @@ export async function formatRes({
 }) {
   if (format === 'html') {
     await res
-      .status(200)
-      .type(autoType ? 'html' : 'text/plain')
+      .type(autoType ? 'text/html' : 'text/plain')
       .send(formatMessage('html', content));
   } else if (format === 'json') {
     await res
-      .status(200)
-      .type(autoType ? 'json' : 'text/plain')
+      .type(autoType ? 'application/json' : 'text/plain')
       .send(formatMessage('json', content));
   } else if (format === 'xml') {
     await res
-      .status(200)
       .type(autoType ? 'application/xml' : 'text/plain')
       .send(formatMessage('xml', content));
   }

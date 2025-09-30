@@ -25,7 +25,7 @@ export const paginationInfinite: FastifyPluginCallback = (fastify, _, done) => {
       return;
     }
 
-    return res.status(200).type('html').send(`<!DOCTYPE html>
+    return res.status(200).type('text/html').send(`<!DOCTYPE html>
 <html>
   <body>
     <h1>Current page: ${val.data.page}</h1>
